@@ -4,6 +4,10 @@ public class Programmer extends Engineer {
     private String programmingMainLanguage;
     private String prefersDB;
 
+    public Programmer(String name) {
+        super(name);
+    }
+
     public String getProgrammingMainLanguage() {
         return programmingMainLanguage;
     }

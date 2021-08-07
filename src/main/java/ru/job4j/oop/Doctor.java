@@ -4,6 +4,10 @@ public class Doctor extends Profession {
     private long licenceNumber;
     private int rating;
 
+    public Doctor(String name) {
+        super(name);
+    }
+
     public long getLicenceNumber() {
         return licenceNumber;
     }

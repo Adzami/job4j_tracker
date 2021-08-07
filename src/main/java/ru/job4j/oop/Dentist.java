@@ -4,6 +4,10 @@ public class Dentist extends Doctor {
     private int averageBill;
     private String catchPhrase;
 
+    public Dentist() {
+        super("Vasiliy");
+    }
+
     public int getAverageBill() {
         return averageBill;
     }
@@ -18,5 +22,10 @@ public class Dentist extends Doctor {
 
     public void comfort() {
         System.out.println(this.catchPhrase);
+    }
+
+    public static void main(String[] args) {
+        Dentist dentist = new Dentist();
+        System.out.println(dentist.getName());
     }
 }

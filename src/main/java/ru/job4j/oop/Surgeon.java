@@ -4,6 +4,10 @@ public class Surgeon extends Doctor {
     private int totalSurgeries;
     private int patientsStillAlive;
 
+    public Surgeon(String name) {
+        super(name);
+    }
+
     public int getTotalSurgeries() {
         return totalSurgeries;
     }

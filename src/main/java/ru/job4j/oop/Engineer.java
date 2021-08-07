@@ -4,6 +4,10 @@ public class Engineer extends Profession {
     private String technoStack;
     private int yearsOfExperience;
 
+    public Engineer(String name) {
+        super(name);
+    }
+
     public String getTechnoStack() {
         return technoStack;
     }
