@@ -1,9 +1,9 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport {
+public class Bus implements Transport, Vehicle {
     @Override
     public void move() {
-
+        System.out.println("Проезд оплачиваем!");
     }
 
     @Override
