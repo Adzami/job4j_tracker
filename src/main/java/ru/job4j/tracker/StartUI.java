@@ -10,7 +10,7 @@ public class StartUI {
         System.out.println("Добавленная заявка: " + item);
     }
 
-    public static void showAllItems(Tracker tracker) {
+    public static void showAllItems(Input input, Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
@@ -76,7 +76,7 @@ public class StartUI {
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
-                StartUI.showAllItems(tracker);
+                StartUI.showAllItems(input, tracker);
             } else if (select == 2) {
                 StartUI.replaceItem(input, tracker);
             } else if (select == 3) {
