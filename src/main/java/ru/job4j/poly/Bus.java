@@ -8,11 +8,13 @@ public class Bus implements Transport, Vehicle {
 
     @Override
     public void passengers(int passengers) {
-
+        if (passengers > 10) {
+            System.out.println("Куда прешь, автобус не резиновый!");
+        }
     }
 
     @Override
     public int refuel(int fuel) {
-        return 0;
+        return fuel * 48;
     }
 }
