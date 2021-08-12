@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MagicBall {
     public static void main(String[] args) {
-        System.out.print("Я великий Оракул. Что ты хочешь узнать? \n");
+        System.out.println("Я великий Оракул. Что ты хочешь узнать?");
         String  input = new Scanner(System.in).nextLine();
         // Я ж великий оракул - так что на одинаковый вопрос даю одинаковый ответ.
         int answer = new Random(input.hashCode()).nextInt(3);
