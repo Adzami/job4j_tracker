@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.time.format.DateTimeFormatter;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.*;
@@ -72,6 +75,87 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Exit Program" + System.lineSeparator()
+        ));
+    }
+
+    @Test
+    public void whenShowAllAction() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test Item"));
+        UserAction[] actions = {
+                new ShowAllAction(out),
+                new ExitAction()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. Show all items" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator() +
+                        "=== Show all items ====" + System.lineSeparator() +
+                        "Item{id=1, name='Test Item', created=" +
+                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
+                        "}" + System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Show all items" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator()
+        ));
+    }
+
+    @Test
+    public void whenFindById() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", "1", "1"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test Item"));
+        UserAction[] actions = {
+                new FindByIDAction(out),
+                new ExitAction()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. Find item by id" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator() +
+                        "=== Find item by id ====" + System.lineSeparator() +
+                        "Item{id=1, name='Test Item', created=" +
+                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
+                        "}" + System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Find item by id" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator()
+        ));
+    }
+
+    @Test
+    public void whenFindByName() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", "Test Item", "1"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test Item"));
+        UserAction[] actions = {
+                new FindByNameAction(out),
+                new ExitAction()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. Find items by name" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator() +
+                        "=== Find items by name ====" + System.lineSeparator() +
+                        "Item{id=1, name='Test Item', created=" +
+                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
+                        "}" + System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Find items by name" + System.lineSeparator() +
+                        "1. Exit Program" + System.lineSeparator()
         ));
     }
 }
