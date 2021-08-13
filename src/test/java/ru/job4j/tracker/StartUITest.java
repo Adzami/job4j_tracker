@@ -96,9 +96,7 @@ public class StartUITest {
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
                         "=== Show all items ====" + System.lineSeparator() +
-                        "Item{id=1, name='Test Item', created=" +
-                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
-                        "}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
@@ -108,11 +106,11 @@ public class StartUITest {
     @Test
     public void whenFindById() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0", "1", "1"}
-        );
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Test Item"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
         UserAction[] actions = {
                 new FindByIDAction(out),
                 new ExitAction()
@@ -123,9 +121,7 @@ public class StartUITest {
                         "0. Find item by id" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
                         "=== Find item by id ====" + System.lineSeparator() +
-                        "Item{id=1, name='Test Item', created=" +
-                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
-                        "}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find item by id" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
@@ -150,9 +146,7 @@ public class StartUITest {
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
                         "=== Find items by name ====" + System.lineSeparator() +
-                        "Item{id=1, name='Test Item', created=" +
-                        item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) +
-                        "}" + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
