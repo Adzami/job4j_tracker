@@ -9,39 +9,6 @@ import static org.junit.Assert.*;
 
 public class ItemTest {
     @Test
-    public void sortAscending() {
-        List<Item> items = Arrays.asList(
-                new Item(3, "C"),
-                new Item(1, "A"),
-                new Item(2, "B")
-        );
-        items.sort(new SortItemsAsc());
-        List<Item> expected = Arrays.asList(
-                new Item(1, "A"),
-                new Item(2, "B"),
-                new Item(3, "C")
-        );
-        assertEquals(items.toString(), expected.toString());
-    }
-
-    @Test
-    public void sortDescending() {
-        List<Item> items = Arrays.asList(
-                new Item(3, "C"),
-                new Item(1, "A"),
-                new Item(2, "B")
-        );
-        items.sort(new SortItemsDesc());
-        List<Item> expected = Arrays.asList(
-                new Item(3, "C"),
-                new Item(2, "B"),
-                new Item(1, "A")
-        );
-        assertEquals(items.toString(), expected.toString());
-    }
-
-
-    @Test
     public void sortByNameAscending() {
         List<Item> items = Arrays.asList(
                 new Item(3, "Z"),
@@ -54,7 +21,7 @@ public class ItemTest {
                 new Item(2, "Y"),
                 new Item(3, "Z")
         );
-        assertEquals(items.toString(), expected.toString());
+        assertEquals(items, expected);
     }
 
     @Test
@@ -70,6 +37,6 @@ public class ItemTest {
                 new Item(2, "Y"),
                 new Item(1, "X")
         );
-        assertEquals(items.toString(), expected.toString());
+        assertEquals(items, expected);
     }
 }
