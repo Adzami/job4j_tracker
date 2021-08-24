@@ -2,7 +2,14 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель банковского счета клиента
+ */
 public class Account {
+    /**
+     * requisite - реквизиты счета. Должны быть уникальны.
+     * balance - текущий остаток средств
+     */
     private String requisite;
     private double balance;
 

@@ -2,7 +2,14 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель клиента банка
+ */
 public class User {
+    /**
+     * passport - паспортные данные клиента. Должны быть уникальны.
+     * username - имя пользователя в системе.
+     */
     private String passport;
     private String username;
 
