@@ -13,6 +13,7 @@ public class College {
         // Мда, не надо было создавать дату типа LocalDateTime, наверное. Длинновато получилось.
         System.out.println("Student " + student.getFio()
                 + " is in group " + student.getGroup()
-                + " since " + student.getDate().format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH)));
+                + " since "
+                + student.getDate().format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH)));
     }
 }

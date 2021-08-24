@@ -7,11 +7,11 @@ import static org.hamcrest.Matchers.equalTo;
 public class MaxTest {
     @Test
     public void maxOfThree() {
-        assertThat(Max.max(7,3,5), equalTo(7));
+        assertThat(Max.max(7, 3, 5), equalTo(7));
     }
 
     @Test
     public void maxOfFour() {
-        assertThat(Max.max(10,3,5, 10), equalTo(10));
+        assertThat(Max.max(10, 3, 5,  10), equalTo(10));
     }
 }
