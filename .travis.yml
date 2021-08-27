@@ -3,6 +3,10 @@ language: java
 jdk:
   - oraclejdk16
 
+env:
+  global:
+    - CODECOV_TOKEN="c10ecc66-23ff-4fee-b165-6a0f9f80cddf"
+
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
@@ -18,7 +22,3 @@ notifications:
       - aeol79@gmil.com
     on_success: never # default: change
     on_failure: always # default: always
-
-env:
-  global:
-    - CODECOV_TOKEN="c10ecc66-23ff-4fee-b165-6a0f9f80cddf"
