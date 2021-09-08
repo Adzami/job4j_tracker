@@ -42,13 +42,10 @@ public class BankService {
     // Не кошерные названия методов - findBy возвращают разные типы данных
     // Лучше бы findUserByPassport и findAccountByRequisite
     public User findByPassport(String passport) {
-        Set<User> users = this.users.keySet();
-        for (User user : users) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return this.users.keySet().stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -61,11 +58,10 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            for (Account account : this.users.get(user)) {
-                if (account.getRequisite().equals(requisite)) {
-                    return account;
-                }
-            }
+            return this.users.get(user).stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
