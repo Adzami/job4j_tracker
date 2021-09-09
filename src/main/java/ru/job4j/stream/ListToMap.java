@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public class ListToMap {
     public static Map<String, Student> convertToMap(List<Student> students) {
-        return new HashMap<>(students.stream()
-                            .collect(Collectors.toMap(
-                                    Student::getSurname,
-                                    e -> e,
-                                    (surname1, surname2) -> surname2)
-                            ));
+        return students.stream()
+                .collect(Collectors.toMap(
+                        Student::getSurname,
+                        e -> e,
+                        (surname1, surname2) -> surname2)
+                );
     }
 }

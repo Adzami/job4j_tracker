@@ -22,7 +22,9 @@ public class ListToMapTest {
         );
         Map<String, Student> rsl = ListToMap.convertToMap(students);
         Map<String, Student> expected = new HashMap<>();
-        students.forEach(student -> expected.put(student.getSurname(), student));
+        expected.put("Surname1", new Student(10, "Surname1"));
+        expected.put("Surname2", new Student(80, "Surname2"));
+        expected.put("Surname3", new Student(90, "Surname3"));
         assertThat(rsl, is(expected));
     }
 }
