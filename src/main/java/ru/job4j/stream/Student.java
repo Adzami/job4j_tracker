@@ -12,6 +12,12 @@ public class Student {
         this.surname = surname;
     }
 
+    // В прошлых уроках конструктор был другой, так что перегрузил
+    public Student(String surname, int score) {
+        this.score = score;
+        this.surname = surname;
+    }
+
     public int getScore() {
         return score;
     }
