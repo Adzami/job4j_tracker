@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 
 public class JobTest {
     @Test
-    public void whenCompatorByNameDesc() {
+    public void whenComparatorByNameDesc() {
         Comparator<Job> cmpNamePriority = new JobDescByName();
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
@@ -19,7 +19,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByNameAsc() {
+    public void whenComparatorByNameAsc() {
         Comparator<Job> cmpNamePriority = new JobAscByName();
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
@@ -29,7 +29,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByPriorityDesc() {
+    public void whenComparatorByPriorityDesc() {
         Comparator<Job> cmpNamePriority = new JobDescByPriority();
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
@@ -39,7 +39,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByPriorityAsc() {
+    public void whenComparatorByPriorityAsc() {
         Comparator<Job> cmpNamePriority = new JobAscByPriority();
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
@@ -49,7 +49,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByNameAndProrityDesc() {
+    public void whenComparatorByNameAndPriorityDesc() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
@@ -59,7 +59,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByNameAndProrityAsc() {
+    public void whenComparatorByNameAndPriorityAsc() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
