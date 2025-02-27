@@ -9,14 +9,14 @@ public class Item {
     private LocalDateTime created = LocalDateTime.now();
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
-    Item() {
+    public Item() {
     }
 
-    Item(String name) {
+    public Item(String name) {
         this.name = name;
     }
 
-    Item(int id, String name) {
+    public Item(int id, String name) {
         this.id = id;
         this.name = name;
     }
