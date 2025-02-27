@@ -7,6 +7,7 @@ public class MagicBall {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Задайте вопрос, на который можно ответить Да или Нет.");
+        String question = input.nextLine();
         int answer = new Random().nextInt(3);
         switch (answer) {
             case 0:
